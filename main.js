@@ -4,9 +4,9 @@ import { addBoilerPlateMeshes, addStandardMesh } from './addMeshes'
 import { addLight } from './addLights'
 //add functions from other files
 
-const renderer = new THREE.WebGL1Renderer()
-const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,100)//+ camera
-const scene = new THREE.Scene()//+ scene
+const renderer = new THREE.WebGLRenderer()
+const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,100)
+const scene = new THREE.Scene()
 const meshes = {} //+ an empty object "meshes" --- store references to our meshes, store all of our meshes in there
 const lights = {}
 // let mesh
@@ -33,7 +33,7 @@ function init(){
     camera.position.set(0,0,5)
     // scene.add(mesh)
     resize()
-    animate()//call animate
+    animate()
 }
 
 function resize(){
