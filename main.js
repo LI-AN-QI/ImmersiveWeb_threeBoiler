@@ -37,25 +37,10 @@ function init(){
 
     camera.position.set(0,0,5)
   
-    instances()
     resize()
     animate()
 }
 
-function instances() {
-	const heart = new Model({
-		//4 mandatories
-        mixers: mixers,
-		url: '/heart.glb',
-        animationState:true,
-		scene: scene,
-		meshes: meshes,
-        replace: true,  //replace:url
-		name: 'heart',
-
-	})
-    heart.init()
-}
 
 function resize(){
     window.addEventListener('resize',()=>{
@@ -69,10 +54,7 @@ function resize(){
 function animate(){
     requestAnimationFrame(animate)
     const delta = clock.getDelta()
-    for (const mixer of mixers) {
-		mixer.update(delta)
-	}
-    controls.update()
+    
     meshes.default.rotation.x += 0.01
     meshes.default.rotation.y -= 0.01
 
@@ -80,5 +62,5 @@ function animate(){
     meshes.standard.rotation.y -= 0.01
     // mesh.rotation.x += 0.01
     // mesh.rotation.y += 0.01
-    renderer.render(scene,camera)//scene+camera->renderer
+    renderer.render(scene,camera)
 }
